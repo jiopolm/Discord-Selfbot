@@ -1,7 +1,9 @@
-FROM python:3.6.5
-ADD . /Discord-Selfbot
+FROM python:latest
 
-RUN cd Discord-Selfbot && \
-    pip install -r requirements.txt
+WORKDIR /bot
 
-CMD ["/Discord-Selfbot/run_linuxmac.sh"]
+COPY . .
+
+RUN cd bot && pip install -r requirements.txt
+
+CMD ["/bot/run_linuxmac.sh"]
